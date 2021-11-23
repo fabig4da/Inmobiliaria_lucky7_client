@@ -2,34 +2,65 @@ import React from "react"
 import { useForm } from "react-hook-form";
 import { userServices } from "../../services/user";
 export const CreateUser = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    
-    const onSubmit = async(data) => {
-        try{
-            console.log(data);
-            const response = await userServices.create(data);
-            if(response.message==="OK"){
-                alert('User saved');
-            }
-            console.log(response);
-        }catch(error){
-            console.log(error);
-        }
-    };
+const { register, handleSubmit, /*formState:{ errors }*/ } = useForm();
+
+  const onSubmit = async (data) => {
+    try {
+      console.log(data);
+      const response = await userServices.create(data);
+      if (response.message === "OK") {
+        alert('User saved');
+      }
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
 
   return (
-    /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
-    <form onSubmit={handleSubmit(onSubmit)} className="container form">
-      {/* register your input into the hook by invoking the "register" function */}
-      <h2>Registrarse</h2>
-      <input type="text" className="form-control"  {...register("name", { required: true })} placeholder="Insert your name"/>
-      <input type="text" className="form-control"  {...register("lastname", { required: true })} placeholder="Insert your lastname"/>
-      <input type="email" className="form-control"  {...register("email", { required: true })} placeholder="Insert your email"/>
-      <input type="password" className="form-control"  {...register("password", { required: true })} placeholder="Insert your password"/>
-      {errors.name && <span className="text-danger">name is required</span>}
-      
-      <input type="submit" className="btn btn-primary"/>
-    </form>
+    // <input type="text" className="form-control"  {...register("name", { required: true })} placeholder="Insert your name"/>
+    // <form onSubmit={handleSubmit(onSubmit)} className="container form">
+    <div class="home_content">
+      <header>
+        <h1 class="titulo"> Test form</h1>
+      </header>
+      <section class="form-register">
+        <h4>Formulario Registro</h4>
+        <form onSubmit={handleSubmit(onSubmit)} method="post" autocomplete="off">
+          <fieldset class="marco">
+            <legend>Registro de usuario</legend>
+
+            <label for="name">Nombre:</label><br />
+            <input {...register("name", { required: true })} class="controls" type="text" id="name" name="name" placeholder="Escribe tu nombre" required="true" /><br />
+
+            <label for="lastname">Apellido:</label><br />
+            <input {...register("lastname", { required: true })} class="controls" type="text" id="lastname" name="lastname" placeholder="Escribe tu apellido" required="true" /><br />
+
+            <label for="email">Email:</label><br />
+            <input {...register("email", { required: true })} class="controls" type="email" id="email" name="email" placeholder="example@gmail.com" /><br />
+
+            <label for="password">Contraseña:</label><br />
+            <input {...register("password", { required: true })} class="controls" type="password" id="password" name="password" placeholder="Escriba su contraseña" required="true" /><br />
+
+            {/* <label>Validar:</label><br />
+            <input {...register("name", { required: true })} type="checkbox" id="validated" name="validated" required="true" value="false" />
+            <label for="validated">Validar</label><br/> */}
+
+            <label for="rol">Tipo de usuario: </label><br/>
+            <select {...register("rol", { required: true })} class ="controls" id="rol" name="rol">
+            <option value="user" selected="true">User</option>
+            <option value="admin" hidden="true">Admin</option>
+            </select><br/>
+
+            <label hidden="true">Activo: </label><br/>
+            <input {...register("activo", { required: true })} type ="hidden" id="activo" name="activo" value="true"/>
+
+            <input class ="boton" type ="submit" value="Enviar"/>
+            <input class ="boton" type="reset" value="Reestablecer valores"/>
+          </fieldset>
+        </form>
+      </section>
+    </div>
   );
 }

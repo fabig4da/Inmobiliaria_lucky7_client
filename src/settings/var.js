@@ -1,4 +1,8 @@
 export const navRoutes = {
     regUser: 'regUser',
-    regPropery: 'regProperty'
+    regPropery: 'regProperty',
+    mision: 'mison',
+    vision: 'vision',
+    contacto: 'contacto',
+    home: '/'
 }
