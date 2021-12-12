@@ -21,12 +21,9 @@ export const CreateProperty = () => {
 
     return (
         // <form onSubmit={handleSubmit(onSubmit)} className="container form">
-        <div class="home_content">
-            <header>
-                <h1 class="titulo"> Test form</h1>
-            </header>
+        <div>
             <section class="form-register">
-                <h4>Formulario Registro</h4>
+                <h2>Formulario Registro</h2>
                 <form onSubmit={handleSubmit(onSubmit)} autocomplete="off">
                     <fieldset class="marco">
                         <legend>Registro de inmuebles</legend>

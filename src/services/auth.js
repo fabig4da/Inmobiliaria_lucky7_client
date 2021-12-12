@@ -1,0 +1,13 @@
+const URL = 'http://localhost:4000/auth';
+export const authServices = {
+    signIn: async(user) => {
+        const response = await fetch(URL, {
+            method: 'POST',
+            body: JSON.stringify(user),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        return await response.json();
+    }
+}

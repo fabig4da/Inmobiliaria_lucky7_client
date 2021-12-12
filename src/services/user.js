@@ -27,7 +27,7 @@ export const userServices = {
     update: async(id, user) => {
         const response = await fetch(`${URL}/${id}`, {
             method: 'PUT',
-            headers: new Headers().set('Content-Type', 'Application/Json'),
+            headers: new Headers().set('Content-Type', 'application/json'),
             body: JSON.stringify(user)
         });
         return await response.json();
@@ -35,7 +35,7 @@ export const userServices = {
     delete: async(id) => {
         const response = await fetch(`${URL}/${id}`, {
             method: 'DELETE',
-            headers: new Headers().set('Content-Type', 'Application/Json')
+            headers: new Headers().set('Content-Type', 'application/json')
         });
         return await response.json();
     }

@@ -2,11 +2,8 @@ import React from 'react'
 
 export const Vision = () => {
     return (
-        <div class="home_content">
-            <header>
-                <h1>XYZ Ltda.</h1><br />
-            </header>
-            <section class="section1">
+        <div>
+            <section className="section1">
                 <h2>Nuestra Visión:</h2>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse gravida tincidunt sapien, sit amet hendrerit magna. Quisque eget quam semper, tincidunt nulla nec, sodales orci. Curabitur porttitor purus purus, at maximus nunc ultricies in. Nulla dignissim diam turpis, at porttitor dui volutpat at.

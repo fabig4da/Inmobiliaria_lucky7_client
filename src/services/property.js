@@ -1,3 +1,5 @@
+import { serialize } from 'object-to-formdata';
+
 const URL = 'http://localhost:4000/property';
 export const propertyServices = {
     getMany: async() => {
@@ -15,11 +17,14 @@ export const propertyServices = {
         return await response.json();
     },
     create: async(data) => {
+        const body = serialize(data);
+        // body.append('images', data.images);
+        console.log(body);
         const response = await fetch(URL, {
             method: 'POST',
-            body: JSON.stringify(data),
+            body,
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'multipart/form-data'
             }
         });
         return await response.json();
@@ -27,7 +32,9 @@ export const propertyServices = {
     update: async(id, data) => {
         const response = await fetch(`${URL}/${id}`, {
             method: 'PUT',
-            headers: new Headers().set('Content-Type', 'Application/Json'),
+            headers: {
+                'Content-Type': 'application/json',
+            },
             body: JSON.stringify(data)
         });
         return await response.json();
@@ -35,7 +42,7 @@ export const propertyServices = {
     delete: async(id) => {
         const response = await fetch(`${URL}/${id}`, {
             method: 'DELETE',
-            headers: new Headers().set('Content-Type', 'Application/Json')
+            headers: new Headers().set('Content-Type', 'application/json')
         });
         return await response.json();
     }
