@@ -1,6 +1,6 @@
 import { serialize } from 'object-to-formdata';
 
-const URL = 'http://localhost:4000/property';
+const URL = 'https://inmobiliaria-lucky7.herokuapp.com/property';
 export const propertyServices = {
     getMany: async() => {
         const response = await fetch(URL, {

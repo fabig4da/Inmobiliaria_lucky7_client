@@ -55,7 +55,7 @@ export const MainProperty = () => {
                             {/* <td> property._id </td> */}
                             <td>{ property.name }</td>
                             <td>
-                                <img src={`http://localhost:4000/image/${property.images}`} alt="" />
+                                <img src={`https://inmobiliaria-lucky7.herokuapp.com/image/${property.images}`} alt="" />
                             </td>
                             <td>{ property.bedrooms }</td>
                             <td>{ property.bathrooms }</td>

@@ -1,4 +1,4 @@
-const URL = 'http://localhost:4000/user';
+const URL = 'https://inmobiliaria-lucky7.herokuapp.com/user';
 export const userServices = {
     getMany: async() => {
         const response = await fetch(URL, {

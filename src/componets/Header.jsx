@@ -81,7 +81,7 @@ export const Header = () => {
                         <div className="profile_content">
                             <div className="profile">
                                 <div className="profile_details">
-                                    <img src={'http://localhost:4000/image/name'} alt="profile " />
+                                    <img src={'https://inmobiliaria-lucky7.herokuapp.com/image/name'} alt="profile " />
                                     <div className="name_job">
                                         <div className="name">{`${state.data.user.name} ${state.data.user.lastname}`}</div>
                                         <div className="job">{state.data.user.rol}</div>

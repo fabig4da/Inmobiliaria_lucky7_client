@@ -1,4 +1,4 @@
-const URL = 'http://localhost:4000/auth';
+const URL = 'https://inmobiliaria-lucky7.herokuapp.com/auth';
 export const authServices = {
     signIn: async(user) => {
         const response = await fetch(URL, {
