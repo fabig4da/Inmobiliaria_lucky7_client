@@ -17,15 +17,16 @@ export const propertyServices = {
         return await response.json();
     },
     create: async(data) => {
+        const headers = new Headers();
+        headers.append('Acept', 'multipart/form-data');
+
         const body = serialize(data);
-        // body.append('images', data.images);
-        console.log(body);
+        data.images[0] && body.append('images', data.images[0], data.images[0].name);
+
+        console.log(data.images[0]);
         const response = await fetch(URL, {
             method: 'POST',
-            body,
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
+            body: body
         });
         return await response.json();
     },
